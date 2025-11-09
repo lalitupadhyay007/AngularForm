@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" #epaperForm="ngForm">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" [(ngModel)]="epaper.title" name="title" required />
+  </div>
+
+  <div class="form-group">
+    <label>Edition Date</label>
+    <input type="date" class="form-control" [(ngModel)]="epaper.editionDate" name="editionDate" required />
+  </div>
+
+  <div class="form-group">
+    <label>File Path</label>
+    <input type="file" class="form-control" [(ngModel)]="epaper.filePath" name="filePath" required />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <div [ngClass]="isSuccess ? 'alert alert-success' : 'alert alert-danger'" *ngIf="message">
+    {{ message }}
+  </div>
+</form>

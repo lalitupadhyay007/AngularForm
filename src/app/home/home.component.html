@@ -1,0 +1,15 @@
+<h3 style="text-align: center; color: rebeccapurple;"> Registrion Form</h3>
+<form [formGroup]="Regform" (ngSubmit)="onSubmit(Regform)">
+
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="FName" class="form-label">First Name</label>
+                <input type="text" placeholder="fil the First Name" formControlName="FName" class="form-control">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Save</button>
+
+       
+    </div>
+</form>

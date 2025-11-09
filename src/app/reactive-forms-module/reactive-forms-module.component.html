@@ -1,0 +1,78 @@
+<h3 style="text-align: center; color: red;" >Registrion Form</h3>
+<form [formGroup]="regForm" (ngSubmit)="Register(regForm)">
+   
+    <div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="Email" placeholder="Email">
+          <div
+          *ngIf="regForm.get('Email')?.invalid && regForm.get('Email')?.touched"
+          class="text-danger">
+          Email is required
+        </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+        
+          <div
+          *ngIf="regForm.get('Password')?.invalid && regForm.get('Password')?.touched"
+          class="text-danger">
+          Password is required
+        </div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" formControlName ="Address" placeholder="Pls Fill the Address">
+        <div *ngIf="regForm.get('Address')?.invalid && regForm.get('Address')?.touched" class="text-danger">
+         fill the Address
+        </div>
+      
+      </div>
+  
+      <div class="mb-3">
+        <label for="inputAddress2" class="form-label">Address 2</label>
+        <input type="text" class="form-control" formControlName="FullAddress" placeholder="Pls Fill the Full Address">
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" formControlName="City" placeholder="Pls Fill the City">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select class="form-select" formControlName="State">
+            <option value="">Choose</option>
+            <option value="1">Madhya Pradesh</option>
+          </select>
+
+          <div *ngIf="regForm.get('State')?.invalid && regForm.get('State')?.touched" class="text-danger">
+            Please select a state.
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Pincode</label>
+          <input type="text" class="form-control" formControlName ="Pincode" placeholder="Pls Fill the Pincode">
+        </div>
+      </div>
+  
+      <div class="mb-3 form-check">
+        <input class="form-check-input" type="checkbox" formControlName="chek" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+
+        <div *ngIf="regForm.get('chek')?.invalid && regForm.get('chek')?.touched" class="text-danger">
+          You must agree to continue.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
+

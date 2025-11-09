@@ -1,0 +1,43 @@
+
+<div style="text-align: center; color: red;">
+{{MyLogin}}
+
+</div>    
+
+<div class="container mt-5" style="max-width: 400px;">
+
+    <h3 class="text-center mb-4">User Login</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="mb-3">
+        <label class="form-label">Student Login</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          placeholder="User Id"
+        />
+        <div
+          *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"
+          class="text-danger">
+          Username is required
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+        <div
+          *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          class="text-danger"
+        >
+          Password is required
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+  
+      <div *ngIf="loginError" class="alert alert-danger mt-3">
+        {{ loginError }}
+      </div>
+    </form>
+  </div>
